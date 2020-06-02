@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+        <style>
+            .margin {margin: 25px; background-color:transparent;}
+
+            #new {text-align: center;
+                    color: blue;}
+
+                    body {background-image: url(https://www.bookrazor.com/wp-content/uploads/2016/11/how-to-get-book-reviews-for-free.jpg);
+            background-size: 100% 100% ;
+            background-repeat: no-repeat;
+            background-attachment:fixed }
+
+            
+        </style>
+
+{% block main %}
+    <div class="main"> 
+        <h1>Welcome to Bookreview!</h1>
+        <p>On this website you can find information and reviews for 5000 books! Best of All: You can add your Review too !</p>
+        <hr class="break">
+        <p>Find your books through various tags, including ISBN, author and book title! Try it now!</p>
+        <form id="searchform">
+            <div class="form-group">
+                Search for books:
+                <input type="text" id="q" class="form-control" placeholder="Search" autofocus>
+            </div>
+        </form>
+    </div> 
+
+    <div class="register">
+        <p>Feel free to <a href="registration.html">create an account</a> to leave your own reviews!</p>
+    </div>
+
+    <div class="signin">Already have an account? <a href="login.html">Log In</a></div>
+
+    {% endblock %}

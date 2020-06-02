@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}Log In{% endblock %}
+
+
+  <style>
+
+      .margin {margin: 25px;
+            background-color:transparent;}
+
+      p {text-align: center;}
+
+      body {background-image: url(https://www.bookrazor.com/wp-content/uploads/2016/11/how-to-get-book-reviews-for-free.jpg);
+            background-size: 100% 100% ;
+            background-repeat: no-repeat;
+            background-attachment:fixed }
+
+* {box-sizing: border-box}
+
+.container {padding: 16px;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f3f3f3;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.btn btn-primary {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn btn-primary:hover {opacity:1;}
+
+a {
+  color: dodgerblue;
+}
+
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+  </style>
+ {% block main %}
+
+<div class="margin">
+
+          <form id="login" action="/login" method="POST">
+            <div class="form-group">
+              <h1>Log In</h1>
+              <p>Please log into your account.</p>
+              <hr>
+            </div>
+              <p><b>Username</b></p>
+              <input type="text" required autofocus id="login_user" placeholder="Enter Username" name="login_user" class="form-control">
+            
+              <div class = "alert alert-danger" id = "loginuser"></div>
+
+              <div class="form-group">
+              <label for="psw-repeat"><b>Password</b></label>
+              <input type="password" placeholder="Password" id="login_pw" name="login_pw" class="form-control" required>
+              <hr>
+              </div>
+              <div class="alert alert-danger" id="loginpw"></div>
+              <button type="submit" class="btn btn-primary">Login</button>
+             </div>
+
+      <p>Not a member? <a href="registration.html">Create an account</a></p>
+            </form>
+    </div>
+    {% endblock %}
