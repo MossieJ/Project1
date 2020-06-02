@@ -14,13 +14,11 @@ from flask_sqlalchemy import sqlalchemy
 
 app = Flask(__name__)
 
-# Check for environment variable
-if not os.getenv("postgres://obiwiivrmivnvx:270a793419d37f3ea960733ec2c444b6b4484a1d660a8674b637768513aecb5f@ec2-52-0-155-79.compute-1.amazonaws.com:5432/dfruv7ps0ofpmn"):
-    raise RuntimeError("DATABASE_URL is not set")
 
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+app.config['DATABASE_URL'] = "postgres://obiwiivrmivnvx:270a793419d37f3ea960733ec2c444b6b4484a1d660a8674b637768513aecb5f@ec2-52-0-155-79.compute-1.amazonaws.com:5432/dfruv7ps0ofpmn"
 Session(app)
 
 # Set up database
@@ -28,6 +26,10 @@ Session(app)
 # database setup and scoped session
 engine = create_engine(os.getenv("postgres://obiwiivrmivnvx:270a793419d37f3ea960733ec2c444b6b4484a1d660a8674b637768513aecb5f@ec2-52-0-155-79.compute-1.amazonaws.com:5432/dfruv7ps0ofpmn"))
 db = scoped_session(sessionmaker(bind=engine))
+
+# Check for environment variable
+if not os.getenv("postgres://obiwiivrmivnvx:270a793419d37f3ea960733ec2c444b6b4484a1d660a8674b637768513aecb5f@ec2-52-0-155-79.compute-1.amazonaws.com:5432/dfruv7ps0ofpmn"):
+    raise RuntimeError("DATABASE_URL is not set")
 
 import requests
 res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": "KEY", "isbns": "9781632168146"})
